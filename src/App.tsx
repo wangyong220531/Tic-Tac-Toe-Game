@@ -18,12 +18,15 @@ function Square(props: SquareProps) {
 }
 
 export default function Board() {
+    const [isNext, setIsNext] = useState(true)
     const [squares, setSquares] = useState(Array(9).fill(null))
 
-    function handleClick(index:number){
+    function handleClick(index: number) {
         const nextSquares = squares.slice()
-        nextSquares[index] = "X"
+        if(nextSquares[index]) return
+        isNext ? (nextSquares[index] = "X") : (nextSquares[index] = "O")
         setSquares(nextSquares)
+        setIsNext(!isNext)
     }
     return (
         <div className="board">
