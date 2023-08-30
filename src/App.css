@@ -32,3 +32,28 @@
 .square:focus {
     outline: none;
 }
+
+.description {
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.container {
+    display: flex;
+}
+
+.container > .game-info > ol {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.container > .game-info > ol > li > button:hover {
+    border: none;
+}
+
+.container > .game-info > ol > li > button:focus {
+    outline: none;
+}
