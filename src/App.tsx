@@ -47,8 +47,8 @@ function Board(props: BoardProps) {
     const { xIsNext, squares, onPlay } = props
 
     function handleClick(index: number) {
-        const nextSquares = squares.slice()
         if (squares[index] || caculateWinner(squares)) return
+        const nextSquares = squares.slice()
         xIsNext ? (nextSquares[index] = "X") : (nextSquares[index] = "O")
         onPlay(nextSquares)
     }
@@ -74,14 +74,15 @@ function Board(props: BoardProps) {
 }
 
 export default function Game() {
-    const [xIsNext, setXIsNext] = useState(true)
     const [history, setHistory] = useState([Array(9).fill(null)])
     const [currentIndex, setCurrentIndex] = useState(0)
-    const currentSquares = history[history.length - 1]
+    const xIsNext = currentIndex % 2 === 0
+    const currentSquares = history[currentIndex]
 
     function handlePlay(nextSquares: string[] | number[]) {
-        setHistory([...history.slice(0, currentIndex + 1), nextSquares])
-        setXIsNext(!xIsNext)
+        const nextHistory = [...history.slice(0, currentIndex + 1), nextSquares]
+        setHistory(nextHistory)
+        setCurrentIndex(nextHistory.length - 1)
     }
 
     function jumpTo(index: number) {
