@@ -1,0 +1,31 @@
+#root {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.board {
+    background-color: #c1895d;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.square {
+    width: 100px;
+    height: 100px;
+    background-color: #f6dab4;
+    border-radius: 0;
+}
+
+.square:hover {
+    border: none;
+}
+
+.square:focus {
+    outline: none;
+}
